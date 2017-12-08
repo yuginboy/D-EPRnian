@@ -1,5 +1,5 @@
 ## Synopsis
-Program **GNU D'EPRnian** (under the GPLv3 license)
+Program **GNU D'EPRnian**.
 This program alows you to analyze EPR spectra (electron paramagnetic resonance)
 ---
 ### Program futures: 
@@ -13,7 +13,13 @@ This program alows you to analyze EPR spectra (electron paramagnetic resonance)
 1. Creating **_table of curves/regions_** parameter values (G-factor, peak width, peak area etc.)
 1. Possibility to copy data from table by mouse selection and Ctrl+C
 ---
-[**help video from author (in russian language)**](https://www.youtube.com/watch?v=R-C4jZMzymw)
+### Program unfutures: 
+1. impossible to save/load a project
+1. small speed on the project with a big number of curves/regions
+1. program has not any integration/differentiation filters
+1. program has not any component decomposition possibilities
+ 
+[**help video**](https://www.youtube.com/watch?v=R-C4jZMzymw) from author (in russian language)
 
 ## Motivation
 
