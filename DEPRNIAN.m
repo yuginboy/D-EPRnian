@@ -72,9 +72,10 @@ function DEPRNIAN (A)
 % распространять их на выбранные кривые в окне отображения структур.
 % Создана кнопка "Purge all Curves" очистки всех редактированных кривых от регионов
 % Увеличина точность отображения данных до %0.7g
+% Create magnetic field calibration option
 %-----------------------------------------------------------------------
 
-verVar = 'GNU D''EPRnian v.05.4.4 (2016.08.23)';
+verVar = 'GNU D''EPRnian v.05.4.5 (2017.12.08)';
 txt = sprintf('-->> Start the %s program', verVar);
 disp(txt);
 % path(path,'./mDisplayEPRfiles/');
@@ -142,6 +143,8 @@ B.currentCurveNumber = 0;
 B.currentPeakNumber = 0;
 
 B.freq = 8.392909;% GHz
+B.magnetic_field_shift = 0; % Oe
+% B.magnetic_field_shift = -3.81; % Oe
 
 % Значения переменных для идентификации кривой, для которой создаем регионы
 % и ищем пики:
@@ -328,7 +331,19 @@ B.eb_Smooth = uicontrol('parent', B.tab_main,'Style','edit','Value',1,...
                'BackgroundColor', B.ht_ColorTxtField, 'SelectionHighlight', 'off',...
                'String','5',...
                'TooltipString','Value for the smooth procedure');
-                
+
+B.eb_MagneticFieldCalibration = uicontrol('parent', B.tab_main,'Style','edit','Value',1,...
+               'Units','Pixels',...
+               'Position',prBtPos + [B.btDstBtw+prBtPos(3),-(B.buttonHigh+B.btLastLineShft/2),B.btLongTypeSize(1)-prBtPos(3),0],...
+               'BackgroundColor', B.ht_ColorTxtField, 'SelectionHighlight', 'off',...
+               'String',num2str(B.magnetic_field_shift),...
+               'TooltipString','Magnetic field shift value [Oe/Gs]');
+           
+B.txt_MagneticFieldCalibration = uicontrol('parent', B.tab_main,'Style','text','Value',1,...
+               'Units','Pixels',...
+               'Position',prBtPos + [B.btDstBtw+prBtPos(3)-80,-(B.buttonHigh+B.btLastLineShft+2),B.btLongTypeSize(1)-prBtPos(3),0],...
+               'BackgroundColor', B.figColorBG, 'SelectionHighlight', 'off',...
+               'String','Field calib.');           
                 prBtPos = get(B.eb_Smooth,'position');
 B.hb_ViewSrcData = uicontrol('parent', B.tab_main,'Style','pushbutton','Value',1,...
                'Units','Pixels',...
@@ -717,6 +732,7 @@ set(B.hb_info, 'callback',@viewInfo);
 
 set(B.eb_Smooth, 'callback',@f_Smooth);
 set(B.hb_Smooth, 'callback',@f_Smooth);
+set(B.eb_MagneticFieldCalibration, 'callback',@f_fieldCalibration);
 set(B.hb_ViewSrcData, 'callback',@f_ViewSrcData);
 set(B.hb_BaseLine, 'callback',@f_BaseLine);
 set(B.tb_hideTable, 'callback',@f_hideTable);
@@ -941,6 +957,7 @@ figResizeFcn(B.hFig);
         
         setappdata(B.hFig,'B',B);
     end
+
     function f_Smooth(src,eventdata)
         B = getappdata(B.hFig,'B');
         
@@ -950,6 +967,17 @@ figResizeFcn(B.hFig);
         
         setappdata(B.hFig,'B',B);
     end
+
+    function f_fieldCalibration(src,eventdata)
+        B = getappdata(B.hFig,'B');
+        
+        setappdata(B.hFig,'B',B);
+        mDisplayEPRfiles_fieldCalibration (B) 
+        B = getappdata(B.hFig,'B');
+        
+        setappdata(B.hFig,'B',B);
+    end
+
     function f_ViewSrcData(src,eventdata)
         B = getappdata(B.hFig,'B');
         

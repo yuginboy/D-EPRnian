@@ -7,6 +7,7 @@ tStart = tic;
 B = getappdata(B.hFig,'B');
 chkAutoSmooth = B.valeAutoSmoothForLoadSpectra;
 valSmooth = B.valeAutoSmoothForLoadSpectra_number;
+delta_x = B.magnetic_field_shift;
 [Ax,Ay,info]=eprload(filename);
 if isfield(info,'FrequencyMon')
     [n,m] = size (Ax);
@@ -107,6 +108,7 @@ else
         
         info.FrequencyMon = num2str(info.MF);
 end
+x = x + delta_x;
 src_y = Ay;
 tElapsed = toc(tStart);
 txt = sprintf('load EPR data time: %g s', tElapsed);
