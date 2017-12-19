@@ -37,4 +37,4 @@ MATLAB version should be greater than **_MATLAB 2015a_**
 
 ## License
 
-D'EPRnian have been created under the GPLv3 license
+D'EPRnian has been created under the GPLv3 license
