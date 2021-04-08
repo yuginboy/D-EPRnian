@@ -137,50 +137,50 @@ if checkBinfo
 end
 otx_Resonator = uicontrol('Style','edit', 'Position',[axShiftX axShiftY+520+10-yShift 150 20], 'string', '--',...
     'HorizontalAlignment', 'left','BackgroundColor', B.ht_ColorTxtField);
-if checkBinfo
+if isfield(B.info,'RESO')
     set(otx_Resonator, 'string',B.info.RESO);
 end
 % otx_Temperature = uicontrol('Style','edit', 'Position',[axShiftX axShiftY+520+10-2*yShift 150 20], 'string', '--',...
 %     'HorizontalAlignment', 'left','BackgroundColor', [0.8,0.8,0.8]);
-% if checkBinfo
+% if isfield(B.info,'RESO')
 %     set(otx_Temperature, 'string',B.info.RESO);
 % end
 otx_Comment = uicontrol('Style','edit', 'Position',[axShiftX axShiftY+520+10-2*yShift 150 20], 'string', '--',...
     'HorizontalAlignment', 'left','BackgroundColor', B.ht_ColorTxtField);
-if checkBinfo
+if isfield(B.info,'TITL')
     set(otx_Comment, 'string',B.info.TITL);
 end
     % Следующая колонка значений
 otx_Date = uicontrol('Style','edit', 'Position',[axShiftX+xShift axShiftY+520+10 150 20], 'string', '--',...
     'HorizontalAlignment', 'left','BackgroundColor', B.ht_ColorTxtField);
-if checkBinfo
+if isfield(B.info,'DATE')
     set(otx_Date, 'string',B.info.DATE);
 end
 otx_NumOfScans = uicontrol('Style','edit', 'Position',[axShiftX+xShift axShiftY+520+10-yShift 150 20], 'string', '--',...
     'HorizontalAlignment', 'left','BackgroundColor', B.ht_ColorTxtField);
-if checkBinfo
+if isfield(B.info,'NbScansToDo')
     set(otx_NumOfScans, 'string',B.info.NbScansToDo);
 end
 % Следующая строка колонок
 
 otx_ReceiverGain = uicontrol('Style','edit', 'Position',[axShiftX axShiftY+520+10-7*yShift 150 20], 'string', '--',...
     'HorizontalAlignment', 'left','BackgroundColor', B.ht_ColorTxtField);
-if checkBinfo
+if isfield(B.info,'Gain')
     set(otx_ReceiverGain, 'string',B.info.Gain);
 end
 % otx_Phase = uicontrol('Style','edit', 'Position',[axShiftX axShiftY+520+10-8*yShift 150 20], 'string', '--',...
 %     'HorizontalAlignment', 'left','BackgroundColor', [0.8,0.8,0.8]);
-% if checkBinfo
+% if isfield(B.info,'ModPhase')
 %     set(otx_Phase, 'string',B.info.ModPhase);
 % end
 otx_Harmonic = uicontrol('Style','edit', 'Position',[axShiftX axShiftY+520+10-8*yShift 150 20], 'string', '--',...
     'HorizontalAlignment', 'left','BackgroundColor', B.ht_ColorTxtField);
-if checkBinfo
+if isfield(B.info,'Harmonic')
     set(otx_Harmonic, 'string',B.info.Harmonic);
 end
 otx_ModFreq = uicontrol('Style','edit', 'Position',[axShiftX axShiftY+520+10-9*yShift 150 20], 'string', '--',...
     'HorizontalAlignment', 'left','BackgroundColor', B.ht_ColorTxtField);
-if checkBinfo
+if isfield(B.info,'ModFreq')
     set(otx_ModFreq, 'string',B.info.ModFreq);
 end
    
@@ -188,91 +188,91 @@ end
 
 otx_Field = uicontrol('Style','edit', 'Position',[axShiftX+xShift axShiftY+520+10-7*yShift 150 20], 'string', '--',...
     'HorizontalAlignment', 'left','BackgroundColor', B.ht_ColorTxtField);
-if checkBinfo
+if isfield(B.info,'StaticFieldMon')
     set(otx_Field, 'string',B.info.StaticFieldMon);
 end
 % otx_StartFreq = uicontrol('Style','edit', 'Position',[axShiftX+xShift axShiftY+520+10-8*yShift 150 20], 'string', '--',...
 %     'HorizontalAlignment', 'left','BackgroundColor', [0.8,0.8,0.8]);
-% if checkBinfo
+% if isfield(B.info,'RESO')
 %     set(otx_StartFreq, 'string',B.info.RESO);
 % end
 otx_SweepWidth = uicontrol('Style','edit', 'Position',[axShiftX+xShift axShiftY+520+10-8*yShift 150 20], 'string', '--',...
     'HorizontalAlignment', 'left','BackgroundColor', B.ht_ColorTxtField);
-if checkBinfo
+if isfield(B.info,'SweepWidth')
     set(otx_SweepWidth, 'string',B.info.SweepWidth);
 end
 otx_ModDepth = uicontrol('Style','edit', 'Position',[axShiftX+xShift axShiftY+520+10-9*yShift 150 20], 'string', '--',...
     'HorizontalAlignment', 'left','BackgroundColor', B.ht_ColorTxtField);
-if checkBinfo
+if isfield(B.info,'RESO')
     set(otx_ModDepth, 'string',B.info.RESO);
 end
 % otx_PumpFreq = uicontrol('Style','edit', 'Position',[axShiftX+xShift axShiftY+520+10-11*yShift 150 20], 'string', '--',...
 %     'HorizontalAlignment', 'left','BackgroundColor', [0.8,0.8,0.8]);
-% if checkBinfo
+% if isfield(B.info,'RESO')
 %     set(otx_PumpFreq, 'string',B.info.RESO);
 % end
 otx_Attenuator1 = uicontrol('Style','edit', 'Position',[axShiftX+xShift axShiftY+520+10-10*yShift 150 20], 'string', '--',...
     'HorizontalAlignment', 'left','BackgroundColor',B.ht_ColorTxtField);
-if checkBinfo
+if isfield(B.info,'PowerAtten')
     set(otx_Attenuator1, 'string',B.info.PowerAtten);
 end
 % otx_Attenuator2 = uicontrol('Style','edit', 'Position',[axShiftX+xShift axShiftY+520+10-13*yShift 150 20], 'string', '--',...
 %     'HorizontalAlignment', 'left','BackgroundColor', [0.8,0.8,0.8]);
-% if checkBinfo
+% if isfield(B.info,'RESO')
 %     set(otx_Attenuator2, 'string',B.info.RESO);
 % end
 % otx_Attenuator3 = uicontrol('Style','edit', 'Position',[axShiftX+xShift axShiftY+520+10-14*yShift 150 20], 'string', '--',...
 %     'HorizontalAlignment', 'left','BackgroundColor', [0.8,0.8,0.8]);
-% if checkBinfo
+% if isfield(B.info,'RESO')
 %     set(otx_Attenuator3, 'string',B.info.RESO);
 % end
 otx_Resolution = uicontrol('Style','edit', 'Position',[axShiftX+xShift axShiftY+520+10-11*yShift 150 20], 'string', '--',...
     'HorizontalAlignment', 'left','BackgroundColor', B.ht_ColorTxtField);
-if checkBinfo
+if isfield(B.info,'Resolution')
     set(otx_Resolution, 'string',B.info.Resolution);
 end
 
 % Следующая строка колонок
 otx_Conversion = uicontrol('Style','edit', 'Position',[axShiftX axShiftY+520+10-20*yShift 150 20], 'string', '--',...
     'HorizontalAlignment', 'left','BackgroundColor', B.ht_ColorTxtField);
-if checkBinfo
+if isfield(B.info,'ConvTime')
     set(otx_Conversion, 'string',B.info.ConvTime);
 end
 otx_TimeConst = uicontrol('Style','edit', 'Position',[axShiftX axShiftY+520+10-21*yShift 150 20], 'string', '--',...
     'HorizontalAlignment', 'left','BackgroundColor', B.ht_ColorTxtField);
-if checkBinfo
+if isfield(B.info,'TimeConst')
     set(otx_TimeConst, 'string',B.info.TimeConst);
 end
 otx_SweepTime = uicontrol('Style','edit', 'Position',[axShiftX axShiftY+520+10-22*yShift 150 20], 'string', '--',...
     'HorizontalAlignment', 'left','BackgroundColor', B.ht_ColorTxtField);
-if checkBinfo
+if isfield(B.info,'SweepTime')
     set(otx_SweepTime, 'string',B.info.SweepTime);
 end
 
     % Следующая колонка значений Microwave ----------
 tx_FrequencyMon = uicontrol('Style','edit', 'Position',[axShiftX+xShift axShiftY+520+10-20*yShift 150 20], 'string', '--',...
     'HorizontalAlignment', 'left','BackgroundColor', B.ht_ColorTxtField);
-if checkBinfo
+if isfield(B.info,'FrequencyMon')
     set(tx_FrequencyMon, 'string',B.info.FrequencyMon);
 end
 tx_SweepWidthFq = uicontrol('Style','edit', 'Position',[axShiftX+xShift axShiftY+520+10-21*yShift 150 20], 'string', '--',...
     'HorizontalAlignment', 'left','BackgroundColor', B.ht_ColorTxtField);
-if checkBinfo
+if isfield(B.info,'SweepWidth')
     set(tx_SweepWidthFq, 'string',B.info.SweepWidth);
 end
 tx_CenterField = uicontrol('Style','edit', 'Position',[axShiftX+xShift axShiftY+520+10-22*yShift 150 20], 'string', '--',...
     'HorizontalAlignment', 'left','BackgroundColor', B.ht_ColorTxtField);
-if checkBinfo
+if isfield(B.info,'CenterField')
     set(tx_CenterField, 'string',B.info.CenterField);
 end
 tx_SweepDirection = uicontrol('Style','edit', 'Position',[axShiftX+xShift axShiftY+520+10-23*yShift 150 20], 'string', '--',...
     'HorizontalAlignment', 'left','BackgroundColor', B.ht_ColorTxtField);
-if checkBinfo
+if isfield(B.info,'SweepDirection')
     set(tx_SweepDirection, 'string',B.info.SweepDirection);
 end
 tx_Power = uicontrol('Style','edit', 'Position',[axShiftX+xShift axShiftY+520+10-24*yShift 150 20], 'string', '--',...
     'HorizontalAlignment', 'left','BackgroundColor', B.ht_ColorTxtField);
-if checkBinfo
+if isfield(B.info,'Power')
     set(tx_Power, 'string',B.info.Power);
 end        
 
