@@ -3,7 +3,7 @@ function DEPRNIAN (A)
 % Scientific knowledge must be open and freely available.
 %-----------------------------------------------------------------------
 
-verVar = 'GNU D''EPRnian v.05.4.6 (21.04.08)';
+verVar = 'GNU D''EPRnian v.05.4.7 (2023.02.17)';
 txt = sprintf('-->> Start the %s program', verVar);
 disp(txt);
 % path(path,'./mDisplayEPRfiles/');

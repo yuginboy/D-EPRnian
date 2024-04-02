@@ -8,7 +8,17 @@ B = getappdata(B.hFig,'B');
 chkAutoSmooth = B.valeAutoSmoothForLoadSpectra;
 valSmooth = B.valeAutoSmoothForLoadSpectra_number;
 delta_x = B.magnetic_field_shift;
-[Ax,Ay,info]=eprload(filename);
+try
+    [Ax,Ay,info]=eprload(filename);
+catch
+     warning('Problem using eprload function.  Assigning a values of 0.');
+     
+     Ax = [0, 1];
+     Ay = [0, 1];
+     info.error = 'error';
+     info.MF = 0;
+end
+
 if isfield(info,'FrequencyMon')
     [n,m] = size (Ax);
     [nb,mb] = size (Ay);
